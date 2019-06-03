@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Alarm_activity">
+
+    <Button
+        android:id="@+id/Alarm_b1"
+        android:layout_width="151dp"
+        android:layout_height="98dp"
+        android:onClick="onClick_01"
+        android:text="설정"
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="166dp" />
+
+    <Button
+        android:id="@+id/Alarm_b2"
+        android:layout_width="145dp"
+        android:layout_height="101dp"
+        android:onClick="onClick_02"
+        android:text="해제"
+        app:layout_constraintEnd_toEndOf="@+id/Alarm_b1"
+        app:layout_constraintStart_toStartOf="@+id/Alarm_b1"
+        tools:layout_editor_absoluteY="341dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
