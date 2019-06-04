@@ -11,7 +11,8 @@ import android.widget.TextView;
 import java.lang.String;
 import java.util.Map;
 import java.util.HashMap;
-
+import java.util.List;
+import java.util.ArrayList;
 
 public class word extends AppCompatActivity {
 
@@ -20,8 +21,9 @@ public class word extends AppCompatActivity {
 
 
 
-    //단어리스트 생성
-    Map<String, String> wordlist = new HashMap<String, String>();
+    //내단어리스트 생성
+    List<String[]> wordlist = new ArrayList<String[]>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,19 +34,19 @@ public class word extends AppCompatActivity {
 
     }
 
-    public void onClickAppend(View v){
+    public void onClickAppend(View v){   // '등록하기' 누르면 입력한 데이터 wordlist에 데이터 추가
         EditText text1= (EditText) findViewById(R.id.word);
         String words = text1.getText().toString();
 
         EditText text2 = (EditText) findViewById(R.id.sentence);
         String sentence = text2.getText().toString();
 
-        wordlist.put(words, sentence);
+        wordlist.add(new String[]{words, sentence});
 
-        //테스트
         TextView res = (TextView) findViewById(R.id.textView_word_list);
+        res.append(wordlist.get(0)[0]);
+        res.append(wordlist.get(0)[1]);
 
-        res.append(wordlist.toString());
 
     }
 
