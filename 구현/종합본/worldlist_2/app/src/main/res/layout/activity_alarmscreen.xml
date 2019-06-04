@@ -6,39 +6,26 @@
                                              android:layout_height="match_parent"
                                              tools:context=".alarmscreen">
 
-    <Button
-            android:id="@+id/alarm_b1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginBottom="140dp"
-            android:text="설정"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/alarm_b2"
-            app:layout_constraintStart_toStartOf="@+id/alarm_b2" />
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <Button
+                android:id="@+id/alarm_b1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="설정"
+                android:textSize="15dp"
+                android:layout_marginTop="140dp"
+                android:layout_marginLeft="140dp"/>
+        <Button
+                android:id="@+id/alarm_b2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="해제"
+                android:textSize="15dp"
+                android:layout_marginLeft="140dp" android:layout_marginTop="70dp"/>
+    </LinearLayout>
 
-    <Button
-            android:id="@+id/alarm_b2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="272dp"
-            android:text="해제"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-            android:id="@+id/alarm_b3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="27dp"
-            android:layout_marginLeft="27dp"
-            android:layout_marginBottom="33dp"
-            android:text="뒤로가기"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

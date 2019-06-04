@@ -6,50 +6,37 @@
                                              android:layout_height="match_parent"
                                              tools:context=".menu">
 
-    <Button
-            android:id="@+id/menu_b1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="140dp"
-            android:text="단어장"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <Button
+                android:id="@+id/menu_b1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:text="단어장"
+                android:textSize="15dp"
+                android:layout_marginLeft="140dp"
+        />
+        <Button
+                android:id="@+id/menu_b2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="알람"
+                android:textSize="15dp"
+                android:layout_marginStart="140dp"
+                android:layout_marginTop="70dp"
+        />
+        <Button
+                android:id="@+id/menu_b3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="화면잠금"
+                android:textSize="15dp"
+                android:layout_marginStart="140dp"
+                android:layout_marginTop="70dp"/>
+    </LinearLayout>
 
-    <Button
-            android:id="@+id/menu_b2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="104dp"
-            android:text="알람"
-            android:textSize="30sp"
-            app:layout_constraintStart_toStartOf="@+id/menu_b1"
-            app:layout_constraintTop_toBottomOf="@+id/menu_b1" />
 
-    <Button
-            android:id="@+id/menu_b3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="104dp"
-            android:layout_marginEnd="136dp"
-            android:layout_marginRight="136dp"
-            android:text="화면잠금"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/menu_b2" />
-
-    <Button
-            android:id="@+id/menu_b4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginBottom="30dp"
-            android:text="뒤로가기"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

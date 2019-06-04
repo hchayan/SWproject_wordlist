@@ -50,14 +50,6 @@ public class menu extends AppCompatActivity {
                 startActivity(intent3); // 다음 화면으로 넘어간다
             }
         });
-        Button back = (Button) findViewById(R.id.menu_b4);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                onBackPressed();
-            }
-        });// end onCreate()
     }
 
 }
