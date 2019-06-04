@@ -15,10 +15,7 @@ class Alarmset_activity : AppCompatActivity() {
         setContentView(R.layout.activity_alarmset_activity)
     }
 
-    fun View1.onClick() {
-        val intent_01 = Intent(applicationContext, AlarmActivity::class.java)
-        startActivity(intent_01)
-    }
+
 
     fun View1.onClick_1() {
         val toast_01 = Toast1.makeText(this@Alarmset_activity, "알람이 설정되었습니다.", Toast1.LENGTH_SHORT)

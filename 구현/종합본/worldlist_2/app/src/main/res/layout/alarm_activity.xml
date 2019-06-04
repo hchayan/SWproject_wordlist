@@ -19,8 +19,8 @@
 
     <Button
             android:id="@+id/Alarm_b2"
-            android:layout_width="122dp"
-            android:layout_height="156dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:onClick="onClick_2"
             android:text="해제"
             app:layout_constraintBottom_toBottomOf="parent"
