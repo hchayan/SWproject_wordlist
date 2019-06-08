@@ -1,9 +1,15 @@
-package kr.ac.smu.cs.wordlist;
+package kr.ac.smu.cs.listfinal;
 
+import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -12,12 +18,11 @@ import java.util.List;
 
 public class search1 extends AppCompatActivity {
 
-    //private List<String> list;          // 데이터를 넣은 리스트변수
+    private List<String> list;          // 데이터를 넣은 리스트변수
     private ListView listView;          // 검색을 보여줄 리스트변수
     private EditText editSearch;        // 검색어를 입력할 Input 창
-    private SearchAdapter adapter;      // 리스트뷰에 연결할 아답터
+    private searchAdapter adapter;      // 리스트뷰에 연결할 아답터
     private ArrayList<String> arraylist;
-    private ArrayList<word> lists;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,26 +30,21 @@ public class search1 extends AppCompatActivity {
         setContentView(R.layout.search1);
 
         editSearch = (EditText) findViewById(R.id.editSearch);
-        listView = (ListView) findViewById(R.id.listView);
+        ListView listview ;
+        searchAdapter adapter;
 
-        // 리스트를 생성한다.
-        //list = new ArrayList<String>();
+        // Adapter 생성
+        adapter = new searchAdapter() ;
 
-        // 검색에 사용할 데이터을 미리 저장한다.
-        //settingList();
+        // 리스트뷰 참조 및 Adapter달기
+        //listview = (ListView) findViewById(R.id.listView);
+        //listview.setAdapter(adapter);
+        Intent intent = getIntent();
+        String wordre = intent.getStringExtra("word");
+        String descre = intent.getStringExtra("desc");
 
-        //리스트를 받아온다
-        lists = (ArrayList<word>) getIntent().getSerializableExtra("word");
+        adapter.addItem(wordre, descre) ;
 
-        // 리스트의 모든 데이터를 arraylist에 복사한다.// list 복사본을 만든다.
-        arraylist = new ArrayList<String>();
-        arraylist.addAll(lists);
-
-        // 리스트에 연동될 아답터를 생성한다.
-        adapter = new SearchAdapter(lists, this);
-
-        // 리스트뷰에 아답터를 연결한다.
-        listView.setAdapter(adapter);
 
         // input창에 검색어를 입력시 "addTextChangedListener" 이벤트 리스너를 정의한다.
         editSearch.addTextChangedListener(new TextWatcher() {
@@ -89,7 +89,7 @@ public class search1 extends AppCompatActivity {
                 if (arraylist.get(i).toLowerCase().contains(charText))
                 {
                     // 검색된 데이터를 리스트에 추가한다.
-                    lists.add(arraylist.get(i));
+                    list.add(arraylist.get(i));
                 }
             }
         }
@@ -97,33 +97,6 @@ public class search1 extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
-    // 검색에 사용될 데이터를 리스트에 추가한다.
-    /*private void settingList(){
-        list.add("apple");
-        list.add("banana");
-        list.add("cat");
-        list.add("dog");
-        list.add("egg");
-        list.add("fox");
-        list.add("glass");
-        list.add("horse");
-        list.add("idea");
-        list.add("joker");
-        list.add("kotlin");
-        list.add("lion");
-        list.add("man");
-        list.add("near");
-        list.add("operator");
-        list.add("price");
-        list.add("queen");
-        list.add("row");
-        list.add("stack");
-        list.add("tire");
-        list.add("upper");
-        list.add("victory");
-        list.add("win");
-        list.add("xylophone");
-        list.add("yellow");
-        list.add("zero");
-    }*/
+
 }
+

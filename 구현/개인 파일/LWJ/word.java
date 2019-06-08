@@ -1,4 +1,4 @@
-package kr.ac.smu.cs.wordlist;
+package kr.ac.smu.cs.listfinal;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -28,7 +28,7 @@ public class word extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wordlist);
+        setContentView(R.layout.activity_word);
         dict.put("apple", "사과");
         dict.put("contribution", "기부금");
 
@@ -42,14 +42,16 @@ public class word extends AppCompatActivity {
         String sentence = text2.getText().toString();
 
         wordlist.add(new String[]{words, sentence});
-        Intent it = new Intent(this, search1.class);
-        it.putExtra("word",wordlist);
-        startActivity(it);
-
+        Intent intent = new Intent(word.this, search1.class);
+        intent.putExtra("word",words);
+        intent.putExtra("desc",sentence);
+        startActivity(intent);
 
         TextView res = (TextView) findViewById(R.id.textView_word_list);
         res.append(wordlist.get(0)[0]);
         res.append(wordlist.get(0)[1]);
+
+
     }
 
     public void onClickFindWord(View v){
