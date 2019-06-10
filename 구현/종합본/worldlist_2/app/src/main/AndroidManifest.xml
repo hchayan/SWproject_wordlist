@@ -22,6 +22,9 @@
         <activity android:name=".menu"/>
         <activity android:name=".word"/>
         <activity android:name=".search1"/>
+        <activity android:name=".row_listview"/>
+
+
     </application>
 
 </manifest>

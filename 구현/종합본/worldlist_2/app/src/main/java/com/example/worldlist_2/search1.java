@@ -1,14 +1,22 @@
 package com.example.worldlist_2;
 
+import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.ScheduledExecutorService;
 
 public class search1 extends AppCompatActivity {
 
@@ -24,17 +32,18 @@ public class search1 extends AppCompatActivity {
         setContentView(R.layout.search1);
 
         editSearch = (EditText) findViewById(R.id.editSearch);
-        listView = (ListView) findViewById(R.id.listView);
+        listView = (ListView) findViewById(R.id.listView1);
 
         // 리스트를 생성한다.
         list = new ArrayList<String>();
 
         // 검색에 사용할 데이터을 미리 저장한다.
-        settingList();
+        listTitle = new ArrayList<String>();
+        settingWordList();
 
         // 리스트의 모든 데이터를 arraylist에 복사한다.// list 복사본을 만든다.
-        arraylist = new ArrayList<String>();
-        arraylist.addAll(list);
+        arraylistTitle = new ArrayList<String>();
+        arraylistTitle.addAll(listTitle);
 
         // 리스트에 연동될 아답터를 생성한다.
         adapter = new SearchAdapter(list, this);
@@ -82,7 +91,7 @@ public class search1 extends AppCompatActivity {
             for(int i = 0;i < arraylist.size(); i++)
             {
                 // arraylist의 모든 데이터에 입력받은 단어(charText)가 포함되어 있으면 true를 반환한다.
-                if (arraylist.get(i).toLowerCase().contains(charText))
+                if (arraylistTitle.get(i).toLowerCase().contains(charText))
                 {
                     // 검색된 데이터를 리스트에 추가한다.
                     list.add(arraylist.get(i));
@@ -93,33 +102,40 @@ public class search1 extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
-    // 검색에 사용될 데이터를 리스트에 추가한다.
-    private void settingList(){
-        list.add("apple");
-        list.add("banana");
-        list.add("cat");
-        list.add("dog");
-        list.add("egg");
-        list.add("fox");
-        list.add("glass");
-        list.add("horse");
-        list.add("idea");
-        list.add("joker");
-        list.add("kotlin");
-        list.add("lion");
-        list.add("man");
-        list.add("near");
-        list.add("operator");
-        list.add("price");
-        list.add("queen");
-        list.add("row");
-        list.add("stack");
-        list.add("tire");
-        list.add("upper");
-        list.add("victory");
-        list.add("win");
-        list.add("xylophone");
-        list.add("yellow");
-        list.add("zero");
+    // word list
+    List<WordList> mWordList = new ArrayList<WordList>();
+    private List<String> listTitle;
+    private ArrayList<String> arraylistTitle;
+
+
+    // word list class
+    public class WordList {
+        public String wordTitle;
+        public String wordMean;
+    }
+
+    // setting word list
+    private void settingWordList(){
+        WordList word = new WordList();
+        Intent intent = getIntent();
+        String wordre = intent.getStringExtra("word");
+        String descre = intent.getStringExtra("desc");
+
+        word.wordTitle = "apple";
+        word.wordMean = "사과";
+        /*word.wordTitle = wordre;
+        word.wordMean = descre;*/
+        mWordList.add(word);
+
+
+        settingSearchList();
+    }
+
+    // setting search list
+    private void settingSearchList(){
+        for(int i = 0; i < mWordList.size(); i++){
+            list.add(mWordList.get(i).wordTitle + " / " + mWordList.get(i).wordMean);
+            listTitle.add(mWordList.get(i).wordTitle);
+        }
     }
 }
